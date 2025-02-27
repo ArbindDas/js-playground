@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+    <style>
+        /* Universal reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container styling */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        /* Box styling */
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            height: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 20px;
+        }
+
+        /* Box colors */
+        #red {
+            background-color: #e74c3c;
+        }
+
+        #black {
+            background-color: #34495e;
+        }
+
+        #blue {
+            background-color: #3498db;
+        }
+
+        #green {
+            background-color: #2ecc71;
+        }
+
+        #brown {
+            background-color: brown;
+        }
+
+        /* Hover effect */
+        .box:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <div class="container" id="container">
+        <div class="box" id="red">Red</div>
+        <div class=" box" id="black" ">Black</div>
+        <div class=" box" id="blue" ">Blue</div>
+        <div class=" box" id="green" ">Green</div>
+        <div class=" box" id="brown" ">Brown</div>
+    </div>
+
+
+    <script>
+
+        function changeBodyColorMethod2() {
+
+            const body = document.querySelector("#body");
+            const boxes = document.querySelectorAll(".box"); // Select all the boxes
+            boxes.forEach((boxes)=>{
+
+                boxes.addEventListener('click' , function(e){
+                    const colors = boxes.id;
+                    body.style.backgroundColor = colors;  // Set the body background color
+                    console.log("Body color changed to:", colors);
+                
+                })
+            })
+        }
+        
+        changeBodyColorMethod2();
+    </script>
+
+
+            <script>
+
+
+
+
+
+
+
+
+            </script>
+
+
+
+</body>
+
+</html>
