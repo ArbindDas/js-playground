@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Color Generator</title>
+    <style>
+        /* Universal reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container styling */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            text-align: center;
+            gap: 40px;
+        }
+
+        /* Button styling */
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn {
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* Button hover effect */
+        #btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        #stop {
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #691905;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div class="container">
+        <div class="btn">
+            <button id="btn">Generate Color</button>
+        </div>
+
+
+        <div>
+            <button id="stop">Stop Color</button>
+        </div>
+    </div>
+
+    <script>
+
+        let colorInterval; // Variable to hold the interval ID
+
+        const generateRandomColors = () => {
+
+            const body = document.getElementById("body");
+            const btn = document.getElementById("btn")
+
+            const randomColors = [
+                'red', 'black', 'blue', 'green', 'yellow', 'purple',
+                'pink', 'orange', 'brown', 'gray', 'cyan', 'magenta',
+                'lime', 'teal', 'violet', 'indigo', 'silver', 'gold',
+                'beige', 'peach', 'chartreuse', 'lavender', 'mint', 'skyblue'
+            ];
+
+            btn.addEventListener('click', (e) => {
+
+                // Clear any existing interval to avoid multiple intervals
+                if (colorInterval) {
+                    clearInterval(colorInterval);
+                    console.log("get : "+colorInterval);
+                    
+                }
+
+                console.log(colorInterval);
+                
+                colorInterval = setInterval(() => {
+
+                    const randomColorsIndex = Math.floor(Math.random() * randomColors.length);
+                    body.style.backgroundColor = randomColors[randomColorsIndex];
+
+                }, 1000)
+                // Log the interval ID to the console
+                console.log("after get : "+colorInterval);
+            })
+        }
+        generateRandomColors();
+
+
+        const clearColors = () => {
+
+            const stopBtn = document.getElementById("stop");
+
+            stopBtn.addEventListener('click', () => {
+                clearInterval(colorInterval); // Stop the color change
+            });
+        }
+
+        clearColors();
+
+    </script>
+</body>
+
+</html>
