@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        /* Universal reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Container styling */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Button styling */
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #btn {
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* Button hover effect */
+        #btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div class="container">
+        <div class="btn">
+            <button id="btn">Generate Color</button>
+        </div>
+    </div>
+
+    <script>
+       function generateRandomColors(){
+
+            const body = document.querySelector("#body");
+            const btn = document.getElementById("btn");
+
+            const randomColors = ['red' , 'black' , 'blue' , 'brown'  , 'purple' , 'yellow' , 'green' , 'grey' ];
+
+            btn.addEventListener('click' , function(e){
+
+
+                const randomColorsIndex = Math.floor(Math.random() * randomColors.length);
+
+                body.style.backgroundColor = randomColors[randomColorsIndex];
+
+            })
+        }
+            generateRandomColors();
+
+    </script>
+</body>
+</html>
