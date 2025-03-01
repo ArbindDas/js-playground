@@ -43,6 +43,8 @@
             color: #4CAF50;
         }
 
+         
+      
         textarea {
             width: 100%;
             height: 150px;
@@ -55,6 +57,17 @@
             outline: none;
             transition: border-color 0.3s;
         }
+
+        #label {
+            display: block;      /* Makes label a block element */
+            margin-bottom: 10px; /* Adds margin bottom */
+            font-size: 16px;     /* Text size */
+            color: #4CAF50;      /* Text color */
+        }
+
+
+
+       
 
         textarea:focus {
             border-color: #4CAF50;
@@ -114,7 +127,18 @@
             <div class="heading">
                 Live Character Counter
             </div>
-            <textarea name="counter" id="counter" rows="10" cols="30" onkeyup="count()">
+            
+            <!-- Label for textarea -->
+            <label id="label" for="counter" class="sr-only">Enter text here:</label>
+
+            <textarea 
+                name="counter" 
+                id="counter" 
+                rows="10" 
+                cols="30" 
+                placeholder="Start typing to count characters..." 
+                title="Character count updates as you type." 
+                onkeyup="count()">
             </textarea>
 
             <p id="total">
